@@ -1,0 +1,432 @@
+/* style.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans:wght@300;400;700&display=swap');
+
+:root {
+    --primary-color: #ff6b6b; /* Rojo suave */
+    --secondary-color: #ffe66d; /* Amarillo pastel */
+    --text-color: #333;
+    --light-text-color: #f8f8f8;
+    --bg-color: #fefefe;
+    --accent-color: #6bb0ff; /* Azul suave */
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden; /* Evita scroll horizontal indeseado */
+    scroll-behavior: smooth;
+}
+
+/* Encabezado Principal (Hero Section) */
+.hero {
+    background-attachment: fixed;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/hero-bg.jpg') no-repeat center center/cover; /* Puedes cambiar 'hero-bg.jpg' por una foto tuya que te guste para el fondo */
+    color: var(--light-text-color);
+    text-align: center;
+    padding: 100px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+    position: relative;
+}
+
+.hero-content {
+    display: flex; /* Habilita el modelo de caja flexible */
+    flex-direction: column; /* Apila los elementos hijos verticalmente */
+    align-items: center; /* Centra los elementos horizontalmente */
+    justify-content: center; /* Centra los elementos verticalmente (si hay espacio) */
+    text-align: center; /* Asegura que el texto interno también esté centrado */
+    /* Las siguientes líneas ya deberían estar en tu código */
+    max-width: 800px;
+    margin: 0 auto;
+    color: var(--light-text-color);
+}
+
+.hero h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3.5em; /* Tamaño grande para el título */
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    color: var(--secondary-color); /* Color del título */
+}
+
+.hero p {
+    font-size: 1.4em;
+    margin-bottom: 20px;
+    font-weight: 300;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+}
+
+#countdown {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: var(--primary-color);
+    background-color: rgba(0,0,0,0.6);
+    padding: 10px 20px;
+    border-radius: 10px;
+    display: inline-block;
+    margin-top: 20px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+}
+
+/*ver galeria*/
+.cta-button {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    display: inline-block;
+    margin-top: 30px;
+}
+.cta-button:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-5px);
+}
+
+
+/* Contenedor de la Galería */
+.gallery-container {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.gallery-container h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.8em;
+    color: var(--primary-color);
+    margin-bottom: 40px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.gallery-container h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--accent-color);
+    border-radius: 2px;
+}
+
+/* Cuadrícula de Fotos */
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Columnas responsivas */
+    gap: 25px; /* Espacio entre las fotos */
+}
+
+.photo-item {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.photo-item:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+}
+
+.photo-item img {
+    width: 100%;
+    height: 250px; /* Altura fija para todas las imágenes */
+    object-fit: cover; /* Recorta la imagen para que llene el espacio */
+    display: block;
+    border-bottom: 3px solid var(--primary-color);
+}
+
+.photo-caption {
+    padding: 15px;
+    text-align: left;
+}
+
+.photo-caption p {
+    font-size: 1.1em;
+    margin-bottom: 5px;
+    color: var(--text-color);
+}
+
+.photo-caption span {
+    font-size: 0.9em;
+    color: #888;
+    font-style: italic;
+    display: block;
+    margin-top: 5px;
+}
+
+.video-item video {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    border-bottom: 3px solid var(--primary-color);
+    cursor: pointer;
+}
+
+/* Pie de Página */
+.footer {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    text-align: center;
+    padding: 25px 20px;
+    margin-top: 50px;
+    font-size: 1.1em;
+}
+
+/* Media Queries para responsividad */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5em;
+    }
+
+    .hero p {
+        font-size: 1.2em;
+    }
+
+    .gallery-container h2 {
+        font-size: 2em;
+    }
+
+    .photo-item {
+        margin: 0 auto; /* Centra los items en pantallas pequeñas si no llenan la cuadrícula */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 80px 15px;
+    }
+
+    .hero h1 {
+        font-size: 2em;
+    }
+
+    .hero p {
+        font-size: 1em;
+    }
+
+    #countdown {
+        font-size: 1.4em;
+        padding: 8px 15px;
+    }
+
+    .gallery-container h2 {
+        font-size: 1.8em;
+    }
+
+    .photo-item img {
+        height: 200px; /* Reduce la altura de la imagen en móviles */
+    }
+}
+
+/* style.css (añade esto al final) */
+
+/* Estilos para el Lightbox */
+.lightbox {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    padding: 20px; /* Nuevo: Agrega un padding para evitar que el contenido toque los bordes */
+    box-sizing: border-box; /* Nuevo: Asegura que el padding no cause desbordamiento */
+}
+
+.lightbox-container {
+    display: flex;
+    flex-direction: row; /* <--- ¡Cambiado a 'row' por defecto para pantallas más grandes! */
+    justify-content: center;
+    align-items: flex-start; /* <--- Alinea al inicio verticalmente */
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px; /* <--- Aumenta el ancho máximo para más espacio */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.photo-info-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* max-width: 50%; <--- Podrías usar esto si quieres que la imagen ocupe la mitad del espacio */
+}
+
+.lightbox-description {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: var(--light-text-color);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+    max-height: 80vh; 
+    overflow-y: auto; 
+    flex: 1; /* <--- Permite que la descripción ocupe el espacio restante */
+    max-width: 50%; /* <--- Asegura que no se haga demasiado ancha */
+}
+
+.lightbox-description h3 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2em;
+    color: var(--secondary-color);
+    margin-top: 0;
+}
+
+.lightbox-description p {
+    font-size: 1em;
+    line-height: 1.5;
+}
+
+.lightbox.active {
+    display: flex; /* Muestra el lightbox cuando está activo */
+    opacity: 1;
+}
+
+.lightbox-img {
+    max-width: 90%; /* Máximo 90% del ancho de la pantalla */
+    max-height: 80vh; /* REDUCIDO para dejar espacio al pie de foto y botón de cierre */
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+    animation: zoomIn 0.3s ease-out; /* Animación al aparecer la imagen */
+    object-fit: contain; /* CAMBIADO: Ajusta la imagen completa sin recortar, añade barras si es necesario */
+    margin: auto; /* Centra la imagen dentro del flexbox */
+    border: 3px solid rgb(0, 0, 0); /* Nuevo: Borde para la imagen */
+}
+
+.lightbox-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-video {
+    max-width: 90%;
+    max-height: 80vh;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+    animation: zoomIn 0.3s ease-out;
+    border: 3px solid rgb(0, 0, 0);
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: 300; /* Nuevo: Un poco más fino */
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease;
+    z-index: 1001;
+    text-shadow: 0 0 5px rgba(0,0,0,0.7); /* Nuevo: Sombra de texto para mejor visibilidad */
+}
+
+/* NUEVA REGLA: Media query para el botón de cierre en móviles */
+@media (max-width: 480px) {
+    .close-btn {
+        font-size: 35px; /* Un poco más pequeño */
+        top: 10px;
+        right: 15px;
+    }
+
+    .lightbox-container {
+        flex-direction: column; /* Apilados en pantallas pequeñas */
+        align-items: center;
+    }
+
+    .lightbox-description,
+    .photo-info-wrapper {
+        max-width: 95%; /* Ocupa casi todo el ancho en móviles */
+    }
+}
+
+.close-btn:hover {
+    color: var(--primary-color);
+    transform: rotate(90deg); /* Nuevo: Animación al pasar el mouse */
+}
+.close-btn:focus {
+    color: var(--primary-color); /* Cambia de color al pasar el ratón */
+    text-decoration: none;
+}
+
+.lightbox-caption {
+    color: #fff;
+    font-size: 1.1em;
+    text-align: center;
+    padding: 10px 15px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 0 0 8px 8px;
+    max-width: 90%;
+    margin-top: 5px; 
+    box-sizing: border-box;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5); 
+    margin-left: auto; /* <-- Añade esta línea */
+    margin-right: auto; /* <-- Añade esta línea */
+}
+
+/* NUEVA REGLA: Media query específica para el tamaño del pie de foto en móviles */
+@media (max-width: 480px) {
+    .lightbox-caption {
+        font-size: 1em; /* Aún más pequeño en pantallas muy pequeñas */
+        padding: 8px 10px;
+    }
+
+    #countdown {
+        font-size: 1.2em; /* Reducir el tamaño de fuente en móviles */
+        padding: 8px 15px; /* Ajustar padding */
+        max-width: 90%; /* Limitar el ancho */
+        margin-left: auto; /* Centrarlo */
+        margin-right: auto; /* Centrarlo */
+    }
+
+    /* Regla para evitar que el título del hero section quede muy pegado al contador */
+    .hero h1 {
+        margin-bottom: 5px; /* Reducir margen inferior */
+    }
+    .hero p {
+        margin-bottom: 10px; /* Reducir margen inferior */
+    }
+
+    .lightbox-img {
+        max-width: 95%; /* La imagen ocupa más espacio en móviles */
+        max-height: 75vh; /* Se ajusta para dejar más espacio al pie de foto */
+    }
+
+    .lightbox-caption {
+        font-size: 0.9em; /* Reduce el tamaño de fuente para que no se desborde */
+        padding: 8px 10px;
+    }
+}
+
+/* Para que la imagen del thumbnail no sea clickable en sí misma */
+/* El click lo gestionaremos en el photo-item */
+.photo-item img {
+    cursor: pointer; /* Indica que la imagen es clicable */
+}
